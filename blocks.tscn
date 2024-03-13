@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://d35110qp74hea"]
+
+[ext_resource type="Script" path="res://blocks.gd" id="1_j4t0s"]
+[ext_resource type="Script" path="res://blockgen.gd" id="2_6mmj1"]
+[ext_resource type="Shader" path="res://voxelShader.gdshader" id="2_vigds"]
+[ext_resource type="Texture2D" uid="uid://dc5d1wq2krlb3" path="res://Kenny Prototyping Textures/Dark/texture_01.png" id="3_rh571"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m48yq"]
+render_priority = 0
+shader = ExtResource("2_vigds")
+shader_parameter/mainTexture = ExtResource("3_rh571")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ykljh"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6y6xo"]
+resource_local_to_scene = true
+
+[node name="blocks" type="Node3D"]
+script = ExtResource("1_j4t0s")
+voxelGenPath = "res://compute_blocks.glsl"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("ShaderMaterial_m48yq")
+mesh = SubResource("ArrayMesh_ykljh")
+script = ExtResource("2_6mmj1")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_6y6xo")

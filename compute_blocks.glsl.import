@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dtxa78jc4r1r8"
+path="res://.godot/imported/compute_blocks.glsl-3118fdcee064d5d7d3cac81fa7b8ef94.res"
+
+[deps]
+
+source_file="res://compute_blocks.glsl"
+dest_files=["res://.godot/imported/compute_blocks.glsl-3118fdcee064d5d7d3cac81fa7b8ef94.res"]
+
+[params]
+

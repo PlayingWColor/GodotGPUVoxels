@@ -1,0 +1,374 @@
+[gd_scene load_steps=31 format=3 uid="uid://6bx54l4hqydx"]
+
+[ext_resource type="PackedScene" uid="uid://bmervjocstxwq" path="res://static_env.tscn" id="2_hdn4j"]
+[ext_resource type="PackedScene" uid="uid://cv34ge5ds47x5" path="res://character.tscn" id="3_dqyeb"]
+[ext_resource type="PackedScene" uid="uid://d35110qp74hea" path="res://blocks.tscn" id="3_o5j5u"]
+[ext_resource type="Script" path="res://showiflooking.gd" id="4_02hx5"]
+[ext_resource type="Script" path="res://blocks.gd" id="5_07nib"]
+[ext_resource type="Script" path="res://blockgen.gd" id="6_hb7t2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grj5k"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1qdph"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bvhti"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auivm"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ff7fi"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tyyqi"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er47x"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_54p1w"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rcwiw"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7qr7"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3em8m"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uy7aq"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm1iw"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qsgy4"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_am71b"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pje5"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rrmt5"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3p8m1"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46qbt"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gwpkx"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6tktq"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8kg8i"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jle5s"]
+resource_local_to_scene = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c22v6"]
+resource_local_to_scene = true
+
+[node name="MainScene" type="Node3D"]
+
+[node name="StaticEnv" parent="." instance=ExtResource("2_hdn4j")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -5, 0)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_dqyeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SpinningCube" type="Node3D" parent="." node_paths=PackedStringArray("head")]
+script = ExtResource("4_02hx5")
+head = NodePath("../CharacterBody3D/Camera3D")
+
+[node name="spinningcube-0" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -8)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(8, 0, 8)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-1" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12, -8)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(8, 8, 8)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-2" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -16)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(8, 0, 0)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-3" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12, -16)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(8, 8, 0)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-4" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, -8)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(0, 0, 8)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-5" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 12, -8)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(0, 8, 8)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-6" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, -16)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="spinningcube-7" parent="SpinningCube" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 12, -16)
+voxelGenPath = "res://compute_blocks_spinningcube.glsl"
+genOffset = Vector3(0, 8, 0)
+continuousGeneration = true
+animationAction = "PlayCube"
+
+[node name="SpinningEgg" type="Node3D" parent="." node_paths=PackedStringArray("head")]
+script = ExtResource("4_02hx5")
+head = NodePath("../CharacterBody3D/Camera3D")
+
+[node name="spinningcube-0" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 16)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(8, 0, 8)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-0" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_grj5k")
+mesh = SubResource("ArrayMesh_1qdph")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-0/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-0/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bvhti")
+
+[node name="spinningcube-1" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12, 16)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(8, 8, 8)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-1" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_auivm")
+mesh = SubResource("ArrayMesh_ff7fi")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-1/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-1/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tyyqi")
+
+[node name="spinningcube-2" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 8)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(8, 0, 0)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-2" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_er47x")
+mesh = SubResource("ArrayMesh_54p1w")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rcwiw")
+
+[node name="spinningcube-3" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12, 8)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(8, 8, 0)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-3" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_y7qr7")
+mesh = SubResource("ArrayMesh_3em8m")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-3/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-3/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uy7aq")
+
+[node name="spinningcube-4" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, 16)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(0, 0, 8)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-4" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_xm1iw")
+mesh = SubResource("ArrayMesh_qsgy4")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-4/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-4/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_am71b")
+
+[node name="spinningcube-5" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 12, 16)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(0, 8, 8)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-5" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_4pje5")
+mesh = SubResource("ArrayMesh_rrmt5")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-5/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-5/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3p8m1")
+
+[node name="spinningcube-6" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, 8)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-6" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_46qbt")
+mesh = SubResource("ArrayMesh_gwpkx")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-6/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-6/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_6tktq")
+
+[node name="spinningcube-7" type="Node3D" parent="SpinningEgg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 12, 8)
+script = ExtResource("5_07nib")
+voxelGenPath = "res://compute_blocks_egg.glsl"
+genOffset = Vector3(0, 8, 0)
+continuousGeneration = true
+animationAction = "PlayEgg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpinningEgg/spinningcube-7" node_paths=PackedStringArray("collisionShape") groups=["blocks"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+material_override = SubResource("StandardMaterial3D_8kg8i")
+mesh = SubResource("ArrayMesh_jle5s")
+script = ExtResource("6_hb7t2")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+voxelGenPath = "res://compute_blocks.glsl"
+genOffset = Vector3(8, 8, 8)
+autoGenerate = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SpinningEgg/spinningcube-7/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningEgg/spinningcube-7/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c22v6")
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="LineOfChunks" type="Node3D" parent="Floor"]
+
+[node name="blocks" parent="Floor/LineOfChunks" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks5" parent="Floor/LineOfChunks" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks2" parent="Floor/LineOfChunks" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="LineOfChunks5" type="Node3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="blocks" parent="Floor/LineOfChunks5" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks5" parent="Floor/LineOfChunks5" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks2" parent="Floor/LineOfChunks5" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="LineOfChunks2" type="Node3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="blocks" parent="Floor/LineOfChunks2" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks5" parent="Floor/LineOfChunks2" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[node name="blocks2" parent="Floor/LineOfChunks2" instance=ExtResource("3_o5j5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -4)
+voxelGenPath = "res://compute_blocks_floor.glsl"
+
+[editable path="CharacterBody3D"]

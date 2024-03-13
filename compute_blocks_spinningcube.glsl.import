@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://bh7fjvm2ccgme"
+path="res://.godot/imported/compute_blocks_spinningcube.glsl-9e889c0650a9eac424dc413598b86f2c.res"
+
+[deps]
+
+source_file="res://compute_blocks_spinningcube.glsl"
+dest_files=["res://.godot/imported/compute_blocks_spinningcube.glsl-9e889c0650a9eac424dc413598b86f2c.res"]
+
+[params]
+
